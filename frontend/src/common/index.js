@@ -17,12 +17,18 @@ const SummaryApi = {
     url: `${backendDomain}/api/userLogout`,
     method: "get",
   },
+  //admin-panel
   allUser: {
     url: `${backendDomain}/api/all-user`,
     method: "get",
   },
   updateUser: {
     url: `${backendDomain}/api/update-user`,
+    method: "post",
+  },
+  //slot-book
+  bookSlot: {
+    url: `${backendDomain}/api/book-slot`,
     method: "post",
   },
 };
