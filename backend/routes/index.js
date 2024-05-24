@@ -10,6 +10,7 @@ const userLogout = require("../controllers/userLogout");
 const allUsers = require("../controllers/allUsers");
 const updateUser = require("../controllers/updateUser");
 const bookSlot = require("../controllers/bookSlot");
+const allSlots = require("../controllers/allSlots");
 
 router.post("/signup", userSignUpController);
 router.post("/login", userSignInController);
@@ -18,6 +19,7 @@ router.get("/userLogout", userLogout);
 
 //slot book
 router.post("/book-slot", bookSlot);
+router.get("/all-slot", authToken, allSlots);
 
 //admin panel
 //users

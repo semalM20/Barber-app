@@ -9,6 +9,7 @@ import AllUsers from "../pages/AllUsers";
 import Booking from "../pages/booking/Booking";
 import Course from "../pages/course/Course";
 import Shop from "../pages/shop/Shop";
+import AllSlots from "../pages/AllSlots";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
           {
             path: "all-users",
             element: <AllUsers />,
+          },
+          {
+            path: "all-slots",
+            element: <AllSlots />,
           },
         ],
       },

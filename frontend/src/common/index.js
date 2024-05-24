@@ -31,6 +31,10 @@ const SummaryApi = {
     url: `${backendDomain}/api/book-slot`,
     method: "post",
   },
+  allSlot: {
+    url: `${backendDomain}/api/all-slot`,
+    method: "get",
+  },
 };
 
 export default SummaryApi;
