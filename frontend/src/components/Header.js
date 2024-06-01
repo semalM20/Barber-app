@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Logo from "../assets/Logo .jpg";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { FaShoppingCart } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import SummaryApi from "../common";
 import { toast } from "react-toastify";
@@ -15,7 +15,7 @@ const Header = () => {
 
   const [menuDisplay, setMenuDisplay] = useState(false);
 
-  console.log("user header", user);
+  const navigate = useNavigate();
 
   const handleLogout = async () => {
     const fetchData = await fetch(SummaryApi.logout_user.url, {
@@ -28,6 +28,7 @@ const Header = () => {
     if (data.success) {
       toast.success(data.message);
       dispatch(setUserDetails(null));
+      navigate("/login");
     }
 
     if (data.error) {
@@ -37,87 +38,6 @@ const Header = () => {
 
   return (
     <>
-      {/* <header className="h-16 shadow-sm bg-white">
-        <div className="h-full container mx-auto flex items-center px-4 justify-between">
-          <div className="">
-            <Link to="/">
-              <img
-                src={Logo}
-                alt="logo-img"
-                style={{ width: "90px", height: "50px" }}
-              />
-            </Link>
-          </div>
-
-          <div className="flex items-center gap-7">
-            <div className="relative flex justify-center">
-              {user?._id && (
-                <div
-                  className="text-3xl cursor-pointer relative flex justify-center"
-                  onClick={() => {
-                    setMenuDisplay((preve) => !preve);
-                  }}
-                >
-                  {user?.profilePic ? (
-                    <img
-                      src={user.profilePic}
-                      alt={user?.name}
-                      className="w-10 h-10 rounded-full"
-                    />
-                  ) : (
-                    <FaRegCircleUser />
-                  )}
-                </div>
-              )}
-
-              {menuDisplay && (
-                <div className="absolute bg-white bottom-0 top-11 h-fit p-2 shadow-lg rounded">
-                  <nav>
-                    {user?.role === ROLE.ADMIN && (
-                      <Link
-                        to={"/admin-panel/"}
-                        className="whitespace-nowrap hidden md:block hover:bg-slate-100 p-2"
-                        onClick={() => {
-                          setMenuDisplay((preve) => !preve);
-                        }}
-                      >
-                        Admin Panel
-                      </Link>
-                    )}
-                  </nav>
-                </div>
-              )}
-            </div>
-            <div className="text-2xl relative">
-              <span>
-                <FaShoppingCart />
-              </span>
-              <div className="bg-red-600 text-white w-5 h-5 rounded-full p-1 flex items-center justify-center absolute -top-2 -right-3">
-                <p className="text-sm">0</p>
-              </div>
-            </div>
-
-            <div>
-              {user?._id ? (
-                <button
-                  onClick={handleLogout}
-                  className="px-3 py-1 rounded-full text-white bg-red-600 hover:bg-red-700"
-                >
-                  Logout
-                </button>
-              ) : (
-                <Link
-                  to="/login"
-                  className="px-3 py-1 rounded-full text-white bg-red-600 hover:bg-red-700"
-                >
-                  Login
-                </Link>
-              )}
-            </div>
-          </div>
-        </div>
-      </header> */}
-
       <header>
         <div className="top-bar">
           <div className="left-content">
@@ -135,7 +55,6 @@ const Header = () => {
 
         <nav className="navbar">
           <div className="navbar-left">
-            {/* <!-- Replace 'logo.png' with your logo image --> */}
             <Link to="/">
               <img src={Logo} alt="Logo" />
             </Link>
@@ -149,6 +68,9 @@ const Header = () => {
             </Link>
             <Link to="/booking" className="nav-link">
               BOOK SESSION
+            </Link>
+            <Link to="/videoCourse" className="nav-link">
+              VIDEO COURSE
             </Link>
 
             <Link to="/shop" className="nav-link">

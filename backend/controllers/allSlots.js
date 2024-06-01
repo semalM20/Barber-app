@@ -2,8 +2,6 @@ const slotModel = require("../models/bookSlot");
 
 async function allSlots(req, res) {
   try {
-    // console.log("userid all slots", req.userId);
-
     const allSlots = await slotModel.find();
 
     res.status(200).json({

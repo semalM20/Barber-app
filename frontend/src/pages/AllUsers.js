@@ -14,6 +14,9 @@ const AllUsers = () => {
     name: "",
     email: "",
     role: "",
+    onlineCoursePayment: "",
+    offlineBCoursePayment: "",
+    offlineMCoursePayment: "",
     _id: "",
   });
 
@@ -31,8 +34,6 @@ const AllUsers = () => {
     if (dataResponse.error) {
       toast.error(dataResponse.message);
     }
-
-    // console.log(dataResponse);
   };
 
   useEffect(() => {
@@ -48,6 +49,9 @@ const AllUsers = () => {
             <th>Name</th>
             <th>Email</th>
             <th>Role</th>
+            <th>Online Course</th>
+            <th>Beginner's Course</th>
+            <th>Master's Course</th>
             <th>Created Date</th>
             <th>Action</th>
           </tr>
@@ -55,13 +59,16 @@ const AllUsers = () => {
         <tbody>
           {allUsers.map((el, index) => {
             return (
-              <tr>
-                <td>{index + 1}</td>
-                <td>{el?.name}</td>
-                <td>{el?.email}</td>
-                <td>{el?.role}</td>
-                <td>{moment(el?.createdAt).format("LL")}</td>
-                <td>
+              <tr key={index + 11}>
+                <td key={index + 1}>{index + 1}</td>
+                <td key={index + 2}>{el?.name}</td>
+                <td key={index + 3}>{el?.email}</td>
+                <td key={index + 4}>{el?.role}</td>
+                <td key={index + 5}>{el?.onlineCoursePayment}</td>
+                <td key={index + 6}>{el?.offlineBCoursePayment}</td>
+                <td key={index + 7}>{el?.offlineMCoursePayment}</td>
+                <td key={index + 8}>{moment(el?.createdAt).format("LL")}</td>
+                <td key={index + 9}>
                   <button
                     className="bg-green-100 p-2 rounded-full cursor-pointer hover:bg-green-500 hover:text-white"
                     onClick={() => {

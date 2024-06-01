@@ -11,6 +11,15 @@ const userSchema = new mongoose.Schema(
     password: String,
     profilePic: String,
     role: String,
+
+    onlineCoursePayment: Number,
+    offlineBCoursePayment: Number,
+    offlineMCoursePayment: Number,
+
+    token: {
+      type: String,
+      default: "",
+    },
   },
   {
     timestamps: true,

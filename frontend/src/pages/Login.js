@@ -17,8 +17,6 @@ const Login = () => {
   const navigate = useNavigate();
   const { fetchUserDetails } = useContext(Context);
 
-  // console.log("generalContext", generalContext.fetchUserDetails);
-
   const handleOnChange = (e) => {
     const { name, value } = e.target;
 
@@ -46,6 +44,7 @@ const Login = () => {
 
     if (dataApi.success) {
       toast.success(dataApi.message);
+      localStorage.setItem("session", JSON.stringify(dataApi.userDetails));
       navigate("/");
       fetchUserDetails();
     }
@@ -53,8 +52,6 @@ const Login = () => {
       toast.error(dataApi.message);
     }
   };
-
-  console.log("data login", data);
 
   return (
     <section id="login">
@@ -98,7 +95,7 @@ const Login = () => {
                 </div>
               </div>
               <Link
-                to={"/forgot-password"}
+                to={"/forgotPassword"}
                 className="block w-fit ml-auto hover:underline hover:text-red-600"
               >
                 Forgot password ?

@@ -10,6 +10,11 @@ import Booking from "../pages/booking/Booking";
 import Course from "../pages/course/Course";
 import Shop from "../pages/shop/Shop";
 import AllSlots from "../pages/AllSlots";
+import VideoContent from "../pages/courseVideo/videoContent";
+import Checkoutt from "../pages/onlinePayments/Checkoutt";
+import ResetPassword from "../pages/ResetPassword";
+import Success from "../pages/onlinePayments/Success";
+import Failed from "../pages/onlinePayments/Failed";
 
 const router = createBrowserRouter([
   {
@@ -23,10 +28,6 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <Login />,
-      },
-      {
-        path: "forgot-password",
-        element: <ForgotPassword />,
       },
       {
         path: "sign-up",
@@ -43,6 +44,42 @@ const router = createBrowserRouter([
       {
         path: "shop",
         element: <Shop />,
+      },
+      {
+        path: "videoCourse",
+        element: <VideoContent />,
+      },
+      {
+        path: "onlineCoursePayment",
+        element: <Checkoutt paymentType="onlineCoursePayment" amount="1000" />,
+      },
+      {
+        path: "offlineBCoursePayment",
+        element: (
+          <Checkoutt paymentType="offlineBCoursePayment" amount="1500" />
+        ),
+      },
+      {
+        path: "offlineMCoursePayment",
+        element: (
+          <Checkoutt paymentType="offlineMCoursePayment" amount="1500" />
+        ),
+      },
+      {
+        path: "success",
+        element: <Success />,
+      },
+      {
+        path: "failed",
+        element: <Failed />,
+      },
+      {
+        path: "forgotPassword",
+        element: <ForgotPassword />,
+      },
+      {
+        path: "resetPassword/:token",
+        element: <ResetPassword />,
       },
       {
         path: "admin-panel",

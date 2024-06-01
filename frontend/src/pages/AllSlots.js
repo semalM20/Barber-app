@@ -20,8 +20,6 @@ const AllSlots = () => {
     if (dataResponse.error) {
       toast.error(dataResponse.message);
     }
-
-    // console.log(dataResponse);
   };
 
   useEffect(() => {
@@ -43,12 +41,12 @@ const AllSlots = () => {
         <tbody>
           {allSlots.map((el, index) => {
             return (
-              <tr>
-                <td>{index + 1}</td>
-                <td>{el?.name}</td>
-                <td>{moment(el?.date).format("LL")}</td>
-                <td>{el?.time}</td>
-                <td>{moment(el?.createdAt).format("LL")}</td>
+              <tr key={index + 1}>
+                <td key={index + 2}>{index + 1}</td>
+                <td key={index + 3}>{el?.name}</td>
+                <td key={index + 4}>{moment(el?.date).format("LL")}</td>
+                <td key={index + 5}>{el?.time}</td>
+                <td key={index + 6}>{moment(el?.createdAt).format("LL")}</td>
               </tr>
             );
           })}

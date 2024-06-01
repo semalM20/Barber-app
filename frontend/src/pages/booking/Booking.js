@@ -2,12 +2,10 @@ import React, { useState } from "react";
 import "../style.css";
 import "../mediaqueries.css";
 import "./Booking.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import courseBoxImage1 from "../../assets/IMG-20240214-WA0009.jpg";
 import courseBoxImage2 from "../../assets/IMG-20240214-WA0010.jpg";
-// import courseBoxImage3 from "../../assets/IMG-20240214-WA0011.jpg";
 import courseBoxImage4 from "../../assets/IMG-20240214-WA0014.jpg";
-// import courseBoxImage5 from "../../assets/IMG-20240214-WA0015.jpg";
 import axios from "axios";
 import { toast } from "react-toastify";
 import SummaryApi from "../../common";
@@ -23,35 +21,29 @@ const Booking = () => {
     const newSlot = { name, date, time };
     try {
       const res = await axios.post(SummaryApi.bookSlot.url, newSlot);
-      console.log(res.data);
       if (res.data.status) toast.success(res.data.message);
     } catch (error) {
       toast.error("slot is already booked");
-      console.log(error);
     }
   };
 
   const navigate = useNavigate();
 
-  const handlePayment = () => {
-    navigate("/payment");
+  const handleOnlineCoursePayment = () => {
+    navigate("/onlineCoursePayment");
+  };
+  const handleOfflineBCoursePayment = () => {
+    navigate("/offlineBCoursePayment");
+  };
+  const handleOfflineMCoursePayment = () => {
+    navigate("/offlineMCoursePayment");
   };
 
   return (
     <>
-      {/* <Header /> */}
-
-      {/* <!-- Section 1: Book a Haircut Slot --> */}
       <div className="book-slot-section">
         <h2>Book a Haircut Slot</h2>
-        {/* <!-- Placeholder action --> */}
-        <form
-          id="book-slot-form"
-          // action="/send-email"
-          // method="post"
-          onSubmit={handleSubmit}
-        >
-          {/* <!-- Inline layout --> */}
+        <form id="book-slot-form" onSubmit={handleSubmit}>
           <div className="form-group-inline">
             <div className="form-group">
               <input
@@ -67,7 +59,6 @@ const Booking = () => {
               />
             </div>
             <div className="form-group">
-              {/* <!-- Date picker --> */}
               <input
                 type="date"
                 id="date"
@@ -81,7 +72,6 @@ const Booking = () => {
               />
             </div>
             <div className="form-group">
-              {/* <!-- Time picker --> */}
               <input
                 type="time"
                 id="time"
@@ -95,7 +85,6 @@ const Booking = () => {
               />
             </div>
           </div>
-          {/* <!-- Submit button --> */}
           <button
             type="submit"
             className="book-slot-btn"
@@ -106,23 +95,24 @@ const Booking = () => {
         </form>
       </div>
 
-      {/* <!-- Section 2: Book an Offline Course --> */}
       <div className="offline-course-section">
         <h2>GET ENROLLED IN OFFLINE COURSE</h2>
         <div className="course-boxes">
           <div className="course-box">
-            {/* <!-- Placeholder image --> */}
             <img
               src={courseBoxImage1}
               alt="Offline Course 1"
               className="course-img"
             />
-            {/* <!-- Redirect on click --> */}
-            <button className="course-btn" onClick={handlePayment}>
+
+            <button
+              className="course-btn"
+              onClick={handleOfflineBCoursePayment}
+            >
               GET COURSE
             </button>
           </div>
-          <div class="offline-content">
+          <div className="offline-content">
             <p>THERE ARE TWO OFFLINE COURSES </p>
             <p>
               ON YOUR LEFT IS THE BEGINNER BARBER COURSE SAME AS THE ONLINE
@@ -131,47 +121,35 @@ const Booking = () => {
             <p>ON YOUR RIGHT IS THE MASTERCLASS TOPUP COURSE </p>
           </div>
           <div className="course-box">
-            {/* <!-- Placeholder image --> */}
             <img
               src={courseBoxImage2}
               alt="Offline Course 2"
               className="course-img"
             />
-            {/* <!-- Redirect on click --> */}
-            <button className="course-btn" onClick={handlePayment}>
+
+            <button
+              className="course-btn"
+              onClick={handleOfflineMCoursePayment}
+            >
               GET COURSE
             </button>
           </div>
         </div>
       </div>
 
-      {/* <!-- Section 3: Book an Online Course --> */}
       <div className="online-course-section">
         <h2>GET ENROLLED IN ONLINE COURSE</h2>
         <div className="course-boxes">
-          {/* <div className="course-box">
-            Placeholder image
-            <img
-              src={courseBoxImage3}
-              alt="Online Course 1"
-              className="course-img"
-            />
-            Redirect on click
-            <button className="course-btn" onClick={handlePayment}>
-              GET COURSE
-            </button>
-          </div> */}
           <div
             className="course-box"
             style={{ display: "flex", alignItems: "flex-start" }}
           >
-            {/* <!-- Placeholder image --> */}
             <img
               src={courseBoxImage4}
               alt="Online Course 2"
               className="course-img"
             />
-            <div class="course-content">
+            <div className="course-content">
               <p>
                 💈Beginner Barber Course 💈 Sign up now for our Barber courses.
                 Our academy offers you the opportunity to enter a new world.
@@ -192,27 +170,17 @@ const Booking = () => {
                 inspiredstudioacademy@yahoo.com Thank you!
               </p>{" "}
             </div>
-            {/* <!-- Redirect on click --> */}
-            <button
-              className="course-btn"
-              onClick={handlePayment}
-              style={{ marginLeft: "80px", marginTop: "80px" }}
-            >
-              GET COURSE
-            </button>
+
+            <Link>
+              <button
+                className="course-btn"
+                onClick={handleOnlineCoursePayment}
+                style={{ marginLeft: "80px", marginTop: "80px" }}
+              >
+                GET COURSE
+              </button>
+            </Link>
           </div>
-          {/* <div className="course-box">
-            <!-- Placeholder image -->
-            <img
-              src={courseBoxImage5}
-              alt="Online Course 3"
-              className="course-img"
-            />
-            <!-- Redirect on click -->
-            <button className="course-btn" onClick={handlePayment}>
-              GET COURSE
-            </button>
-          </div> */}
         </div>
       </div>
     </>

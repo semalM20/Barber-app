@@ -17,7 +17,7 @@ const SummaryApi = {
     url: `${backendDomain}/api/userLogout`,
     method: "get",
   },
-  //admin-panel
+
   allUser: {
     url: `${backendDomain}/api/all-user`,
     method: "get",
@@ -26,7 +26,7 @@ const SummaryApi = {
     url: `${backendDomain}/api/update-user`,
     method: "post",
   },
-  //slot-book
+
   bookSlot: {
     url: `${backendDomain}/api/book-slot`,
     method: "post",
@@ -34,6 +34,14 @@ const SummaryApi = {
   allSlot: {
     url: `${backendDomain}/api/all-slot`,
     method: "get",
+  },
+  forgotPassword: {
+    url: `${backendDomain}/api/forgotPassword`,
+    method: "post",
+  },
+  resetPassword: {
+    url: `${backendDomain}/api/resetPassword`,
+    method: "post",
   },
 };
 

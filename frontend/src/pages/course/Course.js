@@ -21,30 +21,27 @@ const Course = () => {
 
   return (
     <>
-      <section class="course-section">
-        <div class="course-container">
-          {/* <!-- Left Side --> */}
-          <div class="course-info">
+      <section className="course-section">
+        <div className="course-container">
+          <div className="course-info">
             <h1>Online Pre-Recorded Courses for £1,000</h1>
             <h3>| Barbers' Most Trusted and Most Affordable</h3>
-            <button class="enroll-button" onClick={handleGetEnrolled}>
+            <button className="enroll-button" onClick={handleGetEnrolled}>
               GET ENROLLED
             </button>
-            {/* <button class="enroll-button">{payment}</button> */}
           </div>
 
-          {/* <!-- Right Side --> */}
-          <div class="course-image">
-            <div class="flip-card">
-              <div class="flip-card-inner">
-                <div class="flip-card-front">
+          <div className="course-image">
+            <div className="flip-card">
+              <div className="flip-card-inner">
+                <div className="flip-card-front">
                   <img
                     src={courseImage}
                     alt="Avatar"
                     style={{ width: "300px", height: "300px" }}
                   />
                 </div>
-                <div class="flip-card-back">
+                <div className="flip-card-back">
                   <p>
                     Master Class-WorkShop Educator: Adrian.M What you will
                     learn: - the top part (sections, shape, texture) The sides
@@ -62,24 +59,23 @@ const Course = () => {
           </div>
         </div>
       </section>
-      <div class="course-selection-wrapper">
-        {/* <!-- Centered heading --> */}
-        <h2 class="course-selection-heading">Choose Your Course</h2>
+      <div className="course-selection-wrapper">
+        <h2 className="course-selection-heading">Choose Your Course</h2>
       </div>
 
-      <div class="course-selection-section">
-        <div class="course-box">
+      <div className="course-selection-section">
+        <div className="course-box">
           <h3>Online</h3>
-          <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
+          <div className="flip-card">
+            <div className="flip-card-inner">
+              <div className="flip-card-front">
                 <img
                   src={courseBoxImage1}
                   alt="Avatar"
                   style={{ width: "300px", height: "300px" }}
                 />
               </div>
-              <div class="flip-card-back">
+              <div className="flip-card-back">
                 <h1>DISCRIPTION</h1>
                 <p>
                   Sign up now for our Barber courses. Our academy offers you the
@@ -94,30 +90,30 @@ const Course = () => {
               </div>
             </div>
           </div>
-          <div class="course-buttons">
-            {/* <!-- Change button text as needed --> */}
+          <div className="course-buttons">
             <button id="get-enrolled-btn" onClick={handleGetEnrolled}>
               GET ENROLLED
             </button>
-            {/* <!-- Change button text as needed --> */}
+
             <button>
-              <Link to="#online-info" class="more-info-button"></Link>MORE INFO
+              <Link to="#online-info" className="more-info-button"></Link>MORE
+              INFO
             </button>
           </div>
         </div>
 
-        <div class="course-box">
+        <div className="course-box">
           <h3>Offline</h3>
-          <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
+          <div className="flip-card">
+            <div className="flip-card-inner">
+              <div className="flip-card-front">
                 <img
                   src={courseBoxImage2}
                   alt="Avatar"
                   style={{ width: "300px", height: "300px" }}
                 />
               </div>
-              <div class="flip-card-back">
+              <div className="flip-card-back">
                 <h1>DISCRIPTION</h1>
                 <p>
                   What will you learn with us? *Hair cutting (sections) top part
@@ -131,43 +127,44 @@ const Course = () => {
               </div>
             </div>
           </div>
-          <div class="course-buttons">
-            {/* <!-- Change button text as needed --> */}
+          <div className="course-buttons">
             <button onClick={handleGetEnrolled}>GET ENROLLED</button>
-            {/* <!-- Change button text as needed --> */}
+
             <button>MORE INFO</button>
           </div>
         </div>
       </div>
-      <div class="online-info" id="online-info">
-        <h2 class="online-info-heading">More Info About Online Courses</h2>
-        <div class="info-grid">
-          <div class="info-item">
+      <div className="online-info" id="online-info">
+        <h2 className="online-info-heading">More Info About Online Courses</h2>
+        <div className="info-grid">
+          <div className="info-item">
             <img src={infoItemImage1} alt="Description of img1" />
           </div>
-          <div class="info-item">
+          <div className="info-item">
             <img src={infoItemImage2} alt="Description of Img2" />
           </div>
-          <div class="info-item">
+          <div className="info-item">
             <img src={infoItemImage3} alt="Description of Img3" />
           </div>
         </div>
       </div>
-      <div class="offline-info" id="offline-info">
-        <h2 class="offline-info-heading">More Info About Offline Courses</h2>
-        <div class="info-grid">
-          <div class="info-item">
+      <div className="offline-info" id="offline-info">
+        <h2 className="offline-info-heading">
+          More Info About Offline Courses
+        </h2>
+        <div className="info-grid">
+          <div className="info-item">
             <img src={infoItemImage4} alt="Description of Img1" />
           </div>
-          <div class="info-item">
+          <div className="info-item">
             <img src={infoItemImage5} alt="Description of Img2" />
           </div>
-          <div class="info-item">
+          <div className="info-item">
             <img src={infoItemImage6} alt="Description of Img2" />
           </div>
         </div>
       </div>
-      <div class="container">
+      <div className="container">
         <hr />
       </div>
     </>

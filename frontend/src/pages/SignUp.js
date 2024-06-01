@@ -42,8 +42,6 @@ const SignUp = () => {
         profilePic: imagePic,
       };
     });
-
-    console.log("imagepic", imagePic);
   };
 
   const handleSubmit = async (e) => {
@@ -68,15 +66,11 @@ const SignUp = () => {
       if (dataApi.error) {
         toast.error(dataApi.message);
       }
-
-      // console.log("data", dataApi);
     } else {
       toast.error("Please check Password and confirm Password");
-      // console.log("Please check Password and confirm Password");
     }
   };
 
-  console.log("data login", data);
   return (
     <section id="signup">
       <div className="mx-auto container p-4">

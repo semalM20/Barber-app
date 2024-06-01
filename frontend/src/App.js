@@ -1,7 +1,6 @@
 import { Outlet } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
-// import Footer from "./components/Footer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
@@ -21,15 +20,13 @@ function App() {
 
     const dataApi = await dataResponse.json();
 
-    if (dataApi.success) {
+    if (dataApi.success && dataApi.data) {
+      localStorage.setItem("session", JSON.stringify(dataApi.data));
       dispatch(setUserDetails(dataApi.data));
     }
-
-    console.log("data-user ", dataResponse);
   };
 
   useEffect(() => {
-    // user details
     fetchUserDetails();
   }, []);
 
@@ -37,7 +34,7 @@ function App() {
     <>
       <Context.Provider
         value={{
-          fetchUserDetails, //user details fetch
+          fetchUserDetails,
         }}
       >
         <ToastContainer />
@@ -45,7 +42,6 @@ function App() {
         <main className="min-h-[calc(100vh-120px)]">
           <Outlet />
         </main>
-        {/* <Footer /> */}
       </Context.Provider>
     </>
   );
