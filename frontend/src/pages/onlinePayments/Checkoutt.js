@@ -26,8 +26,15 @@ const Checkoutt = ({ paymentType, amount }) => {
   return (
     <>
       {user?._id ? (
-        <div className="text-center font-bold">
-          <button onClick={HandleSubmit}>Buy Now !</button>
+        <div className="flex justify-center flex-col items-center h-96">
+          <p>You have not purchased the course yet!</p>
+          <p>Click below to buy it</p>
+          <button
+            onClick={HandleSubmit}
+            className="bg-red-600 hover:bg-red-700 text-white w-full px-3 py-1 max-w-[150px] rounded-full hover:scale-110 transition-all mx-auto block mt-2"
+          >
+            Buy Now !
+          </button>
         </div>
       ) : (
         <RedirectToLogin />

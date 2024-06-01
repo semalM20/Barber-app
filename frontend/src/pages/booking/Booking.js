@@ -29,14 +29,36 @@ const Booking = () => {
 
   const navigate = useNavigate();
 
+  const userDetails = JSON.parse(localStorage.getItem("session"));
+
+  let offlineBCourse, offlineMCourse, onlineCourse;
+
+  if (userDetails) {
+    offlineBCourse = userDetails.offlineBCoursePayment;
+    offlineMCourse = userDetails.offlineMCoursePayment;
+    onlineCourse = userDetails.onlineCoursePayment;
+  }
+
   const handleOnlineCoursePayment = () => {
-    navigate("/onlineCoursePayment");
+    if (onlineCourse === 0) {
+      navigate("/onlineCoursePayment");
+    } else {
+      navigate("/bookingConfirmedOnline");
+    }
   };
   const handleOfflineBCoursePayment = () => {
-    navigate("/offlineBCoursePayment");
+    if (offlineBCourse === 0) {
+      navigate("/offlineBCoursePayment");
+    } else {
+      navigate("/bookingConfirmedOfflineB");
+    }
   };
   const handleOfflineMCoursePayment = () => {
-    navigate("/offlineMCoursePayment");
+    if (offlineMCourse === 0) {
+      navigate("/offlineMCoursePayment");
+    } else {
+      navigate("/bookingConfirmedOfflineM");
+    }
   };
 
   return (

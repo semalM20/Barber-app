@@ -15,6 +15,9 @@ import Checkoutt from "../pages/onlinePayments/Checkoutt";
 import ResetPassword from "../pages/ResetPassword";
 import Success from "../pages/onlinePayments/Success";
 import Failed from "../pages/onlinePayments/Failed";
+import BookingConfirmedOnline from "../pages/BookingConfirmedOnline";
+import BookingConfirmedOfflineB from "../pages/BookingConfirmedOfflineB";
+import BookingConfirmedOfflineM from "../pages/BookingConfirmedOfflineM";
 
 const router = createBrowserRouter([
   {
@@ -54,10 +57,18 @@ const router = createBrowserRouter([
         element: <Checkoutt paymentType="onlineCoursePayment" amount="1000" />,
       },
       {
+        path: "bookingConfirmedOnline",
+        element: <BookingConfirmedOnline />,
+      },
+      {
         path: "offlineBCoursePayment",
         element: (
           <Checkoutt paymentType="offlineBCoursePayment" amount="1500" />
         ),
+      },
+      {
+        path: "bookingConfirmedOfflineB",
+        element: <BookingConfirmedOfflineB />,
       },
       {
         path: "offlineMCoursePayment",
@@ -65,6 +76,11 @@ const router = createBrowserRouter([
           <Checkoutt paymentType="offlineMCoursePayment" amount="1500" />
         ),
       },
+      {
+        path: "bookingConfirmedOfflineM",
+        element: <BookingConfirmedOfflineM />,
+      },
+
       {
         path: "success",
         element: <Success />,

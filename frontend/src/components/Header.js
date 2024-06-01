@@ -69,9 +69,9 @@ const Header = () => {
             <Link to="/booking" className="nav-link">
               BOOK SESSION
             </Link>
-            <Link to="/videoCourse" className="nav-link">
+            {/* <Link to="/videoCourse" className="nav-link">
               VIDEO COURSE
-            </Link>
+            </Link> */}
 
             <Link to="/shop" className="nav-link">
               SHOP

@@ -3,7 +3,7 @@ import "./videoContent.css";
 import Sidebar from "./Sidebar";
 import VideoPlayer from "./VideoPlayer";
 import { useSelector } from "react-redux";
-// import RedirectToLogin from "../../components/RedirectToLogin";
+import RedirectToLogin from "../../components/RedirectToLogin";
 import { useNavigate } from "react-router-dom";
 
 const VideoContent = () => {
@@ -12,17 +12,15 @@ const VideoContent = () => {
   const userDetails = JSON.parse(localStorage.getItem("session"));
   console.log("user--->", userDetails);
 
-  let offlineBCourse, offlineMCourse, onlineCourse;
+  let onlineCourse;
 
   if (userDetails) {
-    offlineBCourse = userDetails.offlineBCoursePayment === 1;
-    offlineMCourse = userDetails.offlineMCoursePayment === 1;
     onlineCourse = userDetails.onlineCoursePayment === 1;
   }
 
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate("/offlineBCoursePayment");
+    navigate("/onlineCoursePayment");
   };
 
   const [selectedVideo, setSelectedVideo] = useState(null);
@@ -52,8 +50,8 @@ const VideoContent = () => {
 
   return (
     <>
-      {
-        user?._id && onlineCourse ? (
+      {user?._id ? (
+        onlineCourse ? (
           <>
             <h6 style={{ textAlign: "center", fontSize: "40px" }}>
               Video Lectures
@@ -63,17 +61,22 @@ const VideoContent = () => {
               <VideoPlayer video={selectedVideo} />
             </div>
           </>
-        ) : offlineBCourse || offlineMCourse ? (
-          <h1>Visit nearest store and check your schedule</h1>
         ) : (
           <>
-            <h1>You have not purchased</h1>
-            <button onClick={handleClick}>purchase</button>
+            <div className="flex flex-col justify-center items-center h-96">
+              <h1>You have not purchased the video course</h1>
+              <button
+                onClick={handleClick}
+                className="px-3 py-1 m-2 rounded-full text-white bg-red-600 hover:bg-red-700"
+              >
+                purchase
+              </button>
+            </div>
           </>
         )
-
-        // <RedirectToLogin />
-      }
+      ) : (
+        <RedirectToLogin />
+      )}
     </>
   );
 };

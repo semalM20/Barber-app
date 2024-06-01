@@ -11,11 +11,11 @@ const RedirectToLogin = () => {
   return (
     <div
       className="flex justify-center flex-col items-center bg-slate-900"
-      style={{ height: "37rem" }}
+      style={{ height: "28rem" }}
     >
       <div
         className="flex justify-center flex-col items-center w-4/12 border border-red-600 bg-black "
-        style={{ height: "300px" }}
+        style={{ height: "250px" }}
       >
         <h1 className="font-semibold text-white">
           Please Login first to proceed ahead
