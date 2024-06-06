@@ -10,27 +10,32 @@ const sendResetPasswordMail = async (name, email, token) => {
       secure: false,
       requireTLS: true,
       auth: {
-        user: "",
-        pass: "",
+        user: process.env.CLIENT_EMAIL,
+        pass: process.env.CLIENT_PASS,
       },
     });
 
     const mailOptions = {
-      from: "",
+      from: process.env.CLIENT_EMAIL,
       to: email,
       subject: "For Reset Password",
-      html:
-        "<p>Hii" +
-        name +
-        ', Please copy the link and <a href="http://localhost:5900/api/resetPassword?token="' +
-        token +
-        "> reset your password</a>",
+      html: `<p>Hi ${name},</p>
+      <p>Please click on the link to <a href="${process.env.fRONTEND_URL}/resetPassword/${token}">reset your password</a></p>`,
     };
     transporter.sendMail(mailOptions, function (error, info) {
       if (error) {
-        console.log(error);
+        res.status(500).json({
+          message: error.message || error,
+          success: false,
+          error: true,
+        });
       } else {
-        console.log("Mail has been sent:- ", info.response);
+        res.status(200).json({
+          message: "Mail has been sent:- ",
+          res: info.response,
+          success: true,
+          error: false,
+        });
       }
     });
   } catch (error) {
@@ -45,9 +50,7 @@ const sendResetPasswordMail = async (name, email, token) => {
 const forgotPassword = async (req, res) => {
   try {
     const email = req.body.email;
-    const userData = userModel.findOne({ email: email });
-
-    console.log("user email----->", userData);
+    const userData = await userModel.findOne({ email: email });
 
     if (userData) {
       const randomString = randomstring.generate();
@@ -58,6 +61,7 @@ const forgotPassword = async (req, res) => {
       sendResetPasswordMail(userData.name, userData.email, randomString);
       res.status(200).json({
         message: "Please check your inbox of mail and reset your password",
+        data,
         success: true,
         error: false,
       });

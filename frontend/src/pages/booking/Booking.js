@@ -64,7 +64,11 @@ const Booking = () => {
   return (
     <>
       <div className="book-slot-section">
-        <h2>Book a Haircut Slot</h2>
+        <h2>Book a Free Haircut Slot</h2>
+        <h3 style={{ color: "white", paddingBottom: "20px" }}>
+          {" "}
+          *ONLY AVAILABLE MONDAY AND TUESDAY BETWEEN 10:00 - 16:00{" "}
+        </h3>
         <form id="book-slot-form" onSubmit={handleSubmit}>
           <div className="form-group-inline">
             <div className="form-group">
@@ -172,7 +176,7 @@ const Booking = () => {
               className="course-img"
             />
             <div className="course-content">
-              <p>
+              <p style={{ fontSize: "15px" }}>
                 💈Beginner Barber Course 💈 Sign up now for our Barber courses.
                 Our academy offers you the opportunity to enter a new world.
                 Come let us teach you to create masterpieces with your own

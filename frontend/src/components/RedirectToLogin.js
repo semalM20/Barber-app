@@ -11,7 +11,7 @@ const RedirectToLogin = () => {
   return (
     <div
       className="flex justify-center flex-col items-center bg-slate-900"
-      style={{ height: "28rem" }}
+      style={{ height: "37rem" }}
     >
       <div
         className="flex justify-center flex-col items-center w-4/12 border border-red-600 bg-black "

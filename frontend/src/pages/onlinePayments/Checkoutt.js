@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import RedirectToLogin from "../../components/RedirectToLogin";
 import axios from "axios";
+import SummaryApi from "../../common";
 
 const Checkoutt = ({ paymentType, amount }) => {
   const user = useSelector((state) => state?.user?.user);
@@ -11,7 +12,7 @@ const Checkoutt = ({ paymentType, amount }) => {
   const HandleSubmit = async (e) => {
     e.preventDefault();
 
-    let res = await axios.post("http://localhost:5900/api/payment", {
+    let res = await axios.post(SummaryApi.payment.url, {
       paymentType,
       amount,
       userId: userDetails._id,

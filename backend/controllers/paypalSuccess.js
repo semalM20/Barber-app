@@ -16,6 +16,7 @@ const paySuccess = async (req, res) => {
           amount: {
             currency: "GBP",
             total: "1.00",
+            // total: req.query.amount,
           },
           description: "This is the payment description.",
         },
@@ -28,7 +29,8 @@ const paySuccess = async (req, res) => {
       async function (error, payment) {
         if (error) {
           console.log(error);
-          return res.redirect("http://localhost:5800/failed");
+          // return res.redirect("http://localhost:5800/failed");
+          return res.redirect(`${process.env.fRONTEND_URL}/failed`);
         } else {
           const response = JSON.stringify(payment);
           const ParsedResponse = JSON.parse(response);

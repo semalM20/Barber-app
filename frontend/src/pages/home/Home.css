@@ -11,58 +11,58 @@ body {
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
 
 .top-bar {
-  background-color: #151515; /* Background color of the bar */
-  height: 35px; /* Height of the bar */
-  width: 100%; /* Full width of the page */
-  display: flex; /* Use flexbox to align content */
-  justify-content: space-between; /* Space the content evenly */
-  align-items: center; /* Vertically center the content */
+  background-color: #151515;
+  height: 35px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .left-content {
   padding: 10px;
-  margin-left: 15px; /* Add some margin to the left side */
+  margin-left: 15px;
   color: #fff;
 }
 
 .right-content {
   padding: 10px;
-  margin-right: 15px; /* Add some margin to the right side */
+  margin-right: 15px;
   color: #fff;
 }
 .mobile-link::before {
-  content: "\f10b"; /* Font Awesome icon for mobile */
+  content: "\f10b";
   font-family: "Font Awesome 5 Free";
   margin-right: 5px;
 }
 
 .map-link::before {
-  content: "\f3c5"; /* Font Awesome icon for map */
+  content: "\f3c5";
   font-family: "Font Awesome 5 Free";
   margin-right: 5px;
 }
 
 .mobile-link::before,
 .map-link::before {
-  color: #fdfdfd; /* Color of the icons */
-  margin-right: 5px; /* Spacing between icon and text */
+  color: #fdfdfd;
+  margin-right: 5px;
 }
 
 .mobile-link,
 .map-link {
-  color: #fff; /* Text color */
-  text-decoration: none; /* Remove underline from links */
-  margin-right: 10px; /* Add some space between links */
+  color: #fff;
+  text-decoration: none;
+  margin-right: 10px;
 }
 
 .mobile-link:hover,
 .map-link:hover {
-  text-decoration: underline; /* Underline links on hover */
+  text-decoration: underline;
 }
-/* Navigation bar styles */
+
 .navbar {
-  background-color: #000000; /* Background color of the navbar */
-  padding: 10px; /* Padding around the navbar */
+  background-color: #000000;
+  padding: 10px;
   display: flex;
   justify-content: space-between;
   z-index: 100;
@@ -71,7 +71,7 @@ body {
 }
 
 .navbar-left img {
-  width: 100px; /* Adjust the width of the logo */
+  width: 100px;
   height: 60px;
 }
 
@@ -87,24 +87,23 @@ body {
 }
 
 .navbar-center .nav-link:hover {
-  color: #977656; /* Lighter color on hover */
+  color: #977656;
   text-decoration: underline;
 }
 
 .navbar-right a {
   background-color: transparent;
-  color: #fff; /* White color for login/signup buttons */
+  color: #fff;
   text-decoration: none;
-  padding: 8px 16px; /* Padding for buttons */
-  border: 1px solid #fff; /* Border for buttons */
-  border-radius: 4px; /* Rounded corners for buttons */
-  margin: 0 10px; /* Margin between buttons */
-  transition: background-color 0.3s, color 0.3s; /* Smooth transition on hover */
+  padding: 8px 16px;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  margin: 0 10px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-/* Hover effect for login/signup buttons */
 .navbar-right a:hover {
-  color: #977656; /* Change color on hover */
+  color: #977656;
 }
 #hamburger-nav {
   display: none;
@@ -141,7 +140,7 @@ body {
   overflow: hidden;
   transition: all 0.3 ease-in-out;
 }
-/*targetting the menu and each link in it */
+
 .menu-links a {
   display: block;
   padding: 0.625rem;
@@ -158,7 +157,7 @@ body {
 .menu-links.open {
   max-height: 18.75rem;
 }
-/*ROTATING THE NAVBAR INTO A CROSS */
+
 .hamburger-icon.open span:first-child {
   transform: rotate(45deg) translate(0.625rem, 0.3125rem);
 }
@@ -177,8 +176,8 @@ body {
 
 .background-section {
   position: relative;
-  height: 900px; /* Adjust the height as needed */
-  background-image: url("../../assets/bg1.jpg"); /* Path to your square image */
+  height: 900px;
+  background-image: url("../../assets/bg1.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -190,16 +189,15 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* Black color with 50% opacity */
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
-/* Styles for the slider container */
 .slider-container {
   position: relative;
-  width: 80%; /* Adjusted to 80% */
+  width: 80%;
   margin: 0 auto;
   padding-top: 130px;
-  height: 500px; /* Adjusted height */
+  height: 500px;
   display: flex;
   flex-direction: column;
   z-index: 1;
@@ -207,37 +205,35 @@ body {
   align-items: center;
 }
 
-/* Styles for the slider */
 .slider {
   position: relative;
-  width: 100%; /* Adjusted width */
-  height: 700px;
-  max-width: 800px; /* Max width for responsiveness */
-  overflow: hidden; /* Hide overflow */
+  width: 100%;
+  height: 400px;
+  max-width: 800px;
+  overflow: hidden;
   margin-top: 90px;
 }
 
 .slide {
-  flex: 0 0 100%; /* Adjusted flex */
+  flex: 0 0 100%;
   overflow: hidden;
-  border: 5px solid white; /* Add border to images */
-  height: 100%; /* Set a fixed height for the slide container */
+  border: 5px solid white;
+  height: 400px;
   box-sizing: border-box;
 }
 
 .slide img {
   width: 100%;
-  height: 100%; /* Set a fixed height for the slide container */
+  height: 400px;
   display: block;
   object-fit: cover;
   box-sizing: border-box;
 }
 
-/* Styles for the slider navigation */
 .slider-navigation {
   display: flex;
   justify-content: center;
-  margin-top: 10px; /* Adjust the margin as needed */
+  margin-top: 10px;
 }
 
 .dots {
@@ -487,6 +483,7 @@ body {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  margin-left: 80px;
 }
 
 .footer-content {
@@ -519,8 +516,8 @@ body {
 
 .bottom-content {
   display: flex;
-  flex-direction: column; /* Stack items vertically */
-  justify-content: center;
+  flex-direction: row; /* Stack items vertically */
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   max-width: 1200px;
@@ -534,6 +531,7 @@ body {
 
 .created-by {
   text-align: center; /* Center align the "Created by" text */
+  flex: 1;
 }
 
 .created-by a {
@@ -541,6 +539,14 @@ body {
   text-decoration: underline;
 }
 
+.footerimage {
+  text-align: right;
+}
+
+.footerimage img {
+  height: 150px;
+  filter: invert();
+}
 /*COURSE PAGE CSS */
 
 .course-section {
@@ -688,6 +694,8 @@ body {
   grid-template-columns: repeat(3, 1fr); /* Three equal columns */
   gap: 20px; /* Gap between grid items */
   justify-content: center; /* Center-align the content */
+  padding-left: 60px;
+  padding-right: 60px;
 }
 
 /* Styling for each info item in the grid */

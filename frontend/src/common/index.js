@@ -43,6 +43,10 @@ const SummaryApi = {
     url: `${backendDomain}/api/resetPassword`,
     method: "post",
   },
+  payment: {
+    url: `${backendDomain}/api/payment`,
+    method: "post",
+  },
 };
 
 export default SummaryApi;

@@ -26,7 +26,7 @@ router.post("/book-slot", bookSlot);
 router.get("/all-slot", authToken, allSlots);
 
 router.post("/forgotPassword", forgotPassword);
-router.get("/resetPassword", resetPassword);
+router.post("/resetPassword", resetPassword);
 
 router.get("/all-user", authToken, allUsers);
 router.post("/update-user", authToken, updateUser);

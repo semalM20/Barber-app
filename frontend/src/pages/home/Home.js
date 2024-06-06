@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../style.css";
 import "./Home.css";
 import "../mediaqueries.css";
@@ -10,13 +10,12 @@ import SlideImage2 from "../../assets/IMG-20240214-WA0008.jpg";
 import SlideImage3 from "../../assets/IMG-20240214-WA0010.jpg";
 import SlideImage4 from "../../assets/IMG-20240214-WA0013.jpg";
 
-import iBoxImage1 from "../../assets/IMG-20240214-WA0007.jpg";
-import iBoxImage2 from "../../assets/IMG-20240214-WA0009.jpg";
-import iBoxImage3 from "../../assets/IMG-20240214-WA0014.jpg";
-import iBoxImage4 from "../../assets/IMG-20240214-WA0009.jpg";
-import iBoxImage5 from "../../assets/IMG-20240214-WA0009.jpg";
+import iBoxImage1 from "../../assets/spray.PNG";
+import iBoxImage2 from "../../assets/clipper.PNG";
+import iBoxImage3 from "../../assets/comb.PNG";
+import iBoxImage4 from "../../assets/dryer.PNG";
+import iBoxImage5 from "../../assets/clips.PNG";
 
-import mBoxImage1 from "../../assets/IMG-20240214-WA0008.jpg";
 import mBoxImage2 from "../../assets/IMG-20240228-WA0007.jpg";
 import mBoxImage3 from "../../assets/IMG-20240214-WA0016.jpg";
 
@@ -34,7 +33,23 @@ import sliderImage8 from "../../assets/IMG-20240214-WA0017.jpg";
 import sliderImage9 from "../../assets/IMG-20240214-WA0015.jpg";
 import sliderImage10 from "../../assets/IMG-20240214-WA0013.jpg";
 
+import footerimg1 from "../../assets/cpd.jpg";
+
 const Home = () => {
+  const images = [SlideImage1, SlideImage2, SlideImage3, SlideImage4];
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prevSlide) => (prevSlide + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  const handleDotClick = (index) => {
+    setCurrentSlide(index);
+  };
+
   const navigate = useNavigate();
 
   const handleGetCourse = () => {
@@ -43,37 +58,37 @@ const Home = () => {
 
   return (
     <>
-      <section className="background-section">
-        <div className="slider-container hidden">
+      <section class="background-section">
+        <div class="slider-container hidden">
           <div className="slider-container">
             <div className="slider">
-              <div className="slide">
-                <img src={SlideImage1} style={{ height: "600px" }} alt="Img1" />
-              </div>
-              <div className="slide">
-                <img src={SlideImage2} style={{ height: "600px" }} alt="Img2" />
-              </div>
-              <div className="slide">
-                <img src={SlideImage3} style={{ height: "600px" }} alt="Img3" />
-              </div>
-              <div className="slide">
-                <img src={SlideImage4} style={{ height: "600px" }} alt="Img4" />
-              </div>
-            </div>
-
-            <div className="button-container">
-              <button className="rectangle-button" onClick={handleGetCourse}>
-                GET COURSE
-              </button>
-            </div>
-            <div className="slider-navigation">
-              <div className="dots"></div>
-              <div className="dots"></div>
-              <div className="dots"></div>
-              <div className="dots"></div>
+              {images.map((image, index) => (
+                <div
+                  key={index}
+                  className={`slide ${index === currentSlide ? "active" : ""}`}
+                  style={{ display: index === currentSlide ? "block" : "none" }}
+                >
+                  <img src={image} alt={`Slide ${index + 1}`} />
+                </div>
+              ))}
             </div>
           </div>
-          <div className="rectangle-container">
+          <div className="slider-navigation">
+            {images.map((_, index) => (
+              <div
+                key={index}
+                className={`dots ${index === currentSlide ? "active" : ""}`}
+                onClick={() => handleDotClick(index)}
+              ></div>
+            ))}
+          </div>
+
+          <div class="button-container">
+            <button class="rectangle-button" onClick={handleGetCourse}>
+              GET COURSE
+            </button>
+          </div>
+          <div class="rectangle-container">
             <h2>WHY INSPIRED STUDIO ACADEMY ?</h2>
             <p>
               Our Course it’s held from Our Instructor Adrian which is very
@@ -81,10 +96,10 @@ const Home = () => {
               you a professional barber in a sort period time ! All the
               information to grow you and understanding everything to achieve it
             </p>
-            <div className="video-boxes">
-              <div className="video-box">
+            <div class="video-boxes">
+              <div class="video-box">
                 <video
-                  src="videos/video1.mov"
+                  src="videos/mainpgintro .mp4"
                   controls
                   style={{
                     height: "300px",
@@ -93,9 +108,9 @@ const Home = () => {
                   }}
                 ></video>
               </div>
-              <div className="video-box">
+              <div class="video-box">
                 <video
-                  src="videos/video2.mov"
+                  src="videos/certification.mp4"
                   controls
                   style={{
                     height: "300px",
@@ -104,20 +119,22 @@ const Home = () => {
                   }}
                 ></video>
               </div>
-              <div className="video-box">
-                <video
-                  src="videos/video1.mov"
-                  controls
-                  style={{
-                    height: "300px",
-                    width: "300px",
-                    backgroundColor: "black",
-                  }}
-                ></video>
+              <div class="video-box">
+                <div class="black-square">
+                  <video
+                    src="videos/feedbackstudent.mp4"
+                    controls
+                    style={{
+                      height: "300px",
+                      width: "300px",
+                      backgroundColor: "black",
+                    }}
+                  ></video>
+                </div>
               </div>
-              <div className="video-box">
+              <div class="video-box">
                 <video
-                  src="videos/video1.mov"
+                  src="videos/offlineclass.mp4"
                   controls
                   style={{
                     height: "300px",
@@ -130,8 +147,8 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="about-section">
-        <div className="container">
+      <section class="about-section">
+        <div class="container">
           <h2>About Course</h2>
 
           <p>
@@ -140,51 +157,57 @@ const Home = () => {
             learn the latest techniques and strategies to become a professional
             barber.
           </p>
-          <div className="image-boxes">
-            <div className="image-box">
-              <img src={iBoxImage1} className="center-image" alt="Img1" />
-              <p>Technique 1</p>
+          <div class="image-boxes">
+            <div class="image-box">
+              <img src={iBoxImage1} class="center-image" alt="Img1" />
+              <p>Technique-1</p>
             </div>
-            <div className="image-box">
-              <img src={iBoxImage2} className="center-image" alt="Img2" />
-              <p>Technique 2</p>
+            <div class="image-box">
+              <img src={iBoxImage2} class="center-image" alt="Img2" />
+              <p>Technique-2</p>
             </div>
-            <div className="image-box">
-              <img src={iBoxImage3} className="center-image" alt="Img3" />
-              <p>Technique 3</p>
+            <div class="image-box">
+              <img src={iBoxImage3} class="center-image" alt="Img3" />
+              <p>Technique-3</p>
             </div>
-            <div className="image-box">
-              <img src={iBoxImage4} className="center-image" alt="Img4" />
-              <p>Technique 4</p>
+            <div class="image-box">
+              <img src={iBoxImage4} class="center-image" alt="Img4" />
+              <p>Technique-4</p>
             </div>
-            <div className="image-box">
-              <img src={iBoxImage5} className="center-image" alt="Img5" />
-              <p>Technique 5</p>
+            <div class="image-box">
+              <img src={iBoxImage5} class="center-image" alt="Img5" />
+              <p>Technique-5</p>
             </div>
           </div>
         </div>
-        <h3>Additional Information</h3>
-        <p>Here's some additional information about our course:</p>
-        <div className="medium-boxes">
-          <div className="medium-box">
-            <img src={mBoxImage1} alt="Topic 1 Img" />
-            <h4>Topic 1</h4>
+        <h2 style={{ marginTop: "20px" }}>
+          Here's some additional information about our course:
+        </h2>
+        <div class="medium-boxes">
+          <div class="medium-box">
+            <p>
+              About the offline classes, We have small groups only 4 Students at
+              the time which give us more attention to each Student and focus
+              and make sure everyone understands everything.
+            </p>
+            <p>
+              AND We have already graduated over 25 Students in one year and
+              they are barbers ,working in the Shops
+            </p>
           </div>
-          <div className="medium-box">
+          <div class="medium-box">
             <img src={mBoxImage2} alt="Topic 1 Img" />
-            <h4>Topic 2</h4>
           </div>
-          <div className="medium-box">
+          <div class="medium-box">
             <img src={mBoxImage3} alt="Topic 1 Img" />
-            <h4>Topic 3</h4>
           </div>
         </div>
       </section>
-      <div className="intro-section">
-        <div className="intro-image">
+      <div class="intro-section">
+        <div class="intro-image">
           <img src={introImage1} alt="Tutor Img" />
         </div>
-        <div className="intro-content">
+        <div class="intro-content">
           <h2>About Our Tutor</h2>
           <p>
             Adrian Mecheres brings over four years of expertise in the field of
@@ -202,13 +225,13 @@ const Home = () => {
             leading to excellence and continuous growth.
           </p>
         </div>
-        <div className="intro-image">
+        <div class="intro-image">
           <img src={introImage2} alt="Tutor Img" />
         </div>
       </div>
-      <div className="slider-section">
-        <div className="custom-slider">
-          <div className="slides">
+      <div class="slider-section">
+        <div class="custom-slider">
+          <div class="slides">
             <img src={sliderImage1} alt="Slide 1" />
             <img src={sliderImage2} alt="Slide 2" />
             <img src={sliderImage3} alt="Slide 3" />
@@ -224,39 +247,41 @@ const Home = () => {
         </div>
       </div>
 
-      <footer className="footer">
-        <div className="footer-container">
-          <div className="footer-content">
-            <div className="contact">
+      <footer class="footer">
+        <div class="footer-container">
+          <div class="footer-content">
+            <div class="contact">
               <h4>Contact Us</h4>
               <p>
                 Email:{" "}
-                <Link to="mailto:example@example.com">example@example.com</Link>
+                <Link to="mailto:inspiredstudioacademy@yahoo.com">
+                  inspiredstudioacademy@yahoo.com
+                </Link>
               </p>
               <p>
-                Phone: <Link to="tel:+123456789">+123456789</Link>
+                Phone: <Link to="tel:+44 7448 452820">+44 7448 452820</Link>
               </p>
             </div>
 
-            <div className="social-media">
+            <div class="social-media">
               <h4>Follow Us</h4>
-              <div className="social-icons">
-                <Link to="#">
-                  <i className="fab fa-facebook-f"></i>
+              <div class="social-icons">
+                <Link to="https://www.facebook.com/share/m7GZw25V2h9tMhzL/?mibextid=LQQJ4d">
+                  <i class="fab fa-facebook-f"></i>
                 </Link>
-                <Link to="#">
-                  <i className="fab fa-twitter"></i>
+                <Link to="https://www.tiktok.com/@inspiredstudioacademy?_t=8mOoZU2JHou&_r=1">
+                  <i class="fab fa-tiktok"></i>
                 </Link>
-                <Link to="#">
-                  <i className="fab fa-instagram"></i>
+                <Link to="https://www.instagram.com/inspiredstudioacademy?igsh=Nm9vNDkzZ2lpZXdl">
+                  <i class="fab fa-instagram"></i>
                 </Link>
-                <Link to="#">
-                  <i className="fab fa-linkedin-in"></i>
+                <Link to="https://www.facebook.com/share/ywdnnUVTta5eHf1P/?mibextid=LQQJ4d">
+                  <i class="fab fa-facebook-f"></i>
                 </Link>
               </div>
             </div>
 
-            <div className="map">
+            <div class="map">
               <h4>Location</h4>
 
               <iframe
@@ -272,14 +297,14 @@ const Home = () => {
             </div>
           </div>
 
-          <hr className="footer-divider" />
+          <hr class="footer-divider" />
 
-          <div className="bottom-content">
-            <div className="logo">
+          <div class="bottom-content">
+            <div class="logo">
               <img src={Logo} alt="Logo" />
             </div>
 
-            <div className="copyright">
+            <div class="copyright">
               <p>
                 Copyright&copy; 2024 INSPIRED STUDIO ACADEMY. All rights
                 reserved.
@@ -287,6 +312,9 @@ const Home = () => {
               <p>
                 Created by <Link to="#">Saun Studios</Link>
               </p>
+            </div>
+            <div class="footerimage">
+              <img src={footerimg1} alt="Slide 1" />
             </div>
           </div>
         </div>
