@@ -23,7 +23,7 @@ const BookingConfirmedOfflineM = () => {
     <>
       {user?._id ? (
         offlineMCourse ? (
-          <div className="flex flex-col justify-center items-center border h-96">
+          <div className="flex flex-col justify-center items-center h-96">
             <p>You have successfully purchased the offline master's course </p>
             <h1>Visit the store and check your schedule</h1>
           </div>

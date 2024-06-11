@@ -452,7 +452,8 @@ body {
 .slides {
   display: flex;
   overflow: hidden;
-  animation: slideAnimation 20s linear infinite; /* Adjust timing */
+  width: calc(400px * 10 + 80px * 9);
+  animation: slideAnimation 30s linear infinite; /* Adjust timing */
 }
 
 .slides img {
@@ -467,7 +468,7 @@ body {
   }
   100% {
     transform: translateX(
-      -50%
+      /* -50% */ -3500px
     ); /* Adjust based on the number of slides and their width */
   }
 }

@@ -5,7 +5,7 @@ import "../mediaqueries.css";
 const Shop = () => {
   return (
     <>
-      <div>Shop</div>
+      <div>Coming Soon...</div>
     </>
   );
 };

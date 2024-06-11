@@ -4,8 +4,6 @@ const subscribeModel = require("../models/subscriptionModel");
 
 const paySuccess = async (req, res) => {
   try {
-    console.log(req.query);
-
     const payerId = req.query.PayerID;
     const paymentId = req.query.paymentId;
 
@@ -15,8 +13,7 @@ const paySuccess = async (req, res) => {
         {
           amount: {
             currency: "GBP",
-            total: "1.00",
-            // total: req.query.amount,
+            total: req.query.amount,
           },
           description: "This is the payment description.",
         },
@@ -29,7 +26,6 @@ const paySuccess = async (req, res) => {
       async function (error, payment) {
         if (error) {
           console.log(error);
-          // return res.redirect("http://localhost:5800/failed");
           return res.redirect(`${process.env.fRONTEND_URL}/failed`);
         } else {
           const response = JSON.stringify(payment);
@@ -40,12 +36,10 @@ const paySuccess = async (req, res) => {
             ParsedResponse.transactions[0].description
           );
           console.log(paymentType, amount, "pay--->am", { [paymentType]: 1 });
-          // if (ParsedResponse.payerID && ParsedResponse.paymentId) {
           const updatedUser = await userModel.findByIdAndUpdate(userId, {
             [paymentType]: 1,
           });
           console.log(paymentType, "taking payment", updatedUser);
-          // }
 
           const subscription = new subscribeModel({
             userId,
@@ -58,9 +52,7 @@ const paySuccess = async (req, res) => {
             console.log(error, "error---->", sub);
           });
 
-          console.log(ParsedResponse.transactions);
-
-          return res.redirect("http://localhost:5800/success");
+          return res.redirect(`${process.env.fRONTEND_URL}/success`);
         }
       }
     );

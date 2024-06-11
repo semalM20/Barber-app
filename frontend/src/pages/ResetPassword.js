@@ -31,28 +31,43 @@ const ResetPassword = () => {
   };
 
   return (
-    <div>
+    <div className="flex flex-col justify-center items-center h-96">
       <h2>Reset Password</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label>New Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+          <div className="bg-slate-100 p-2 flex">
+            <input
+              type="password"
+              value={password}
+              placeholder="enter password"
+              name="password"
+              className="w-full h-full outline-none bg-transparent"
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
         </div>
         <div>
           <label>Confirm Password:</label>
-          <input
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
+          <div className="bg-slate-100 p-2 flex">
+            <input
+              type="password"
+              value={confirmPassword}
+              placeholder="enter password"
+              name="password"
+              className="w-full h-full outline-none bg-transparent"
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+            />
+          </div>
         </div>
-        <button type="submit">Reset Password</button>
+        <button
+          type="submit"
+          className="px-3 py-1 m-2 rounded-full text-white bg-red-600 hover:bg-red-700"
+        >
+          Reset Password
+        </button>
       </form>
     </div>
   );

@@ -41,7 +41,7 @@ const VideoContent = () => {
     {
       id: 12,
       title: "12- HOW TO USE THE SCISSORS",
-      url: "videos/SCISSORS1.mov",
+      url: "videos/SCISSORS1.mp4",
     },
     { id: 13, title: "13- SCISSORS PART 2", url: "videos/SCI2.mov" },
     { id: 13, title: "14- SCISSORS PART 3", url: "videos/SCI3.mov" },
@@ -49,7 +49,7 @@ const VideoContent = () => {
     { id: 15, title: "16- SCISSORS PART 5", url: "videos/SCI5.mov" },
     { id: 16, title: "SCISSORS PART 6", url: "videos/SCI6.MOV" },
     { id: 17, title: "SCISSORS PART 7", url: "videos/SCI7.MOV" },
-    { id: 18, title: "HOW TO USE CLIPPER", url: "videos/CLIPPER.mov" },
+    { id: 18, title: "HOW TO USE CLIPPER", url: "videos/CLIPPER.mp4" },
     { id: 19, title: "HOW TO USE THE TRIMMER ", url: "videos/TRIMMER.mov" },
     { id: 20, title: "WHAT IS THE RIGHT POSTURE", url: "videos/RIGHTPOS.mov" },
     { id: 21, title: "BONES OF THE HEAD", url: "videos/BONGS1.mov" },

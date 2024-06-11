@@ -17,7 +17,6 @@ import iBoxImage4 from "../../assets/dryer.PNG";
 import iBoxImage5 from "../../assets/clips.PNG";
 
 import mBoxImage2 from "../../assets/IMG-20240228-WA0007.jpg";
-import mBoxImage3 from "../../assets/IMG-20240214-WA0016.jpg";
 
 import introImage1 from "../../assets/IMG-20240214-WA0014.jpg";
 import introImage2 from "../../assets/intopic.jpg";
@@ -37,6 +36,18 @@ import footerimg1 from "../../assets/cpd.jpg";
 
 const Home = () => {
   const images = [SlideImage1, SlideImage2, SlideImage3, SlideImage4];
+  const sliderImages = [
+    sliderImage1,
+    sliderImage2,
+    sliderImage3,
+    sliderImage4,
+    sliderImage5,
+    sliderImage6,
+    sliderImage7,
+    sliderImage8,
+    sliderImage9,
+    sliderImage10,
+  ];
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
@@ -186,20 +197,26 @@ const Home = () => {
         <div class="medium-boxes">
           <div class="medium-box">
             <p>
-              About the offline classes, We have small groups only 4 Students at
-              the time which give us more attention to each Student and focus
-              and make sure everyone understands everything.
-            </p>
-            <p>
-              AND We have already graduated over 25 Students in one year and
-              they are barbers ,working in the Shops
+              About the offline classes, We offer small groups with only 4
+              students at a time, allowing us to give each student more
+              attention and ensure that everyone fully understands the material.
+              In the past year, we have successfully graduated over 25 students,
+              who are now working as barbers in various shops. Our strategy and
+              education help them achieve their goals and dreams.
             </p>
           </div>
           <div class="medium-box">
             <img src={mBoxImage2} alt="Topic 1 Img" />
           </div>
-          <div class="medium-box">
-            <img src={mBoxImage3} alt="Topic 1 Img" />
+          <div class="medium-box" style={{ fontSize: "18px" }}>
+            <h4>
+              Our ideal candidate should have excellent English communication
+              and writing skills, and must be over 18 years old. No previous
+              experience is required for our beginner courses, making this a
+              perfect opportunity for those eager to start a new career without
+              prior knowledge in the field. We also provide all the necessary
+              equipment for use during the course.
+            </h4>
           </div>
         </div>
       </section>
@@ -232,17 +249,9 @@ const Home = () => {
       <div class="slider-section">
         <div class="custom-slider">
           <div class="slides">
-            <img src={sliderImage1} alt="Slide 1" />
-            <img src={sliderImage2} alt="Slide 2" />
-            <img src={sliderImage3} alt="Slide 3" />
-            <img src={sliderImage4} alt="Slide 4" />
-            <img src={sliderImage5} alt="Slide 5" />
-
-            <img src={sliderImage6} alt="Slide 1" />
-            <img src={sliderImage7} alt="Slide 2" />
-            <img src={sliderImage8} alt="Slide 3" />
-            <img src={sliderImage9} alt="Slide 4" />
-            <img src={sliderImage10} alt="Slide 5" />
+            {sliderImages.map((image, index) => {
+              return <img key={index} src={image} alt={`Slide ${index + 1}`} />;
+            })}
           </div>
         </div>
       </div>
@@ -269,7 +278,7 @@ const Home = () => {
                 <Link to="https://www.facebook.com/share/m7GZw25V2h9tMhzL/?mibextid=LQQJ4d">
                   <i class="fab fa-facebook-f"></i>
                 </Link>
-                <Link to="https://www.tiktok.com/@inspiredstudioacademy?_t=8mOoZU2JHou&_r=1">
+                <Link to="https://www.tiktok.com/@inspiredstudiooacademy?_t=8mlPalzjxTc&_r=1">
                   <i class="fab fa-tiktok"></i>
                 </Link>
                 <Link to="https://www.instagram.com/inspiredstudioacademy?igsh=Nm9vNDkzZ2lpZXdl">

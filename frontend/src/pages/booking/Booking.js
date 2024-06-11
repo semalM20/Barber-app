@@ -67,7 +67,7 @@ const Booking = () => {
         <h2>Book a Free Haircut Slot</h2>
         <h3 style={{ color: "white", paddingBottom: "20px" }}>
           {" "}
-          *ONLY AVAILABLE MONDAY AND TUESDAY BETWEEN 10:00 - 16:00{" "}
+          *ONLY AVAILABLE MONDAY AND WEDNESDAY BETWEEN 10:00 - 16:00{" "}
         </h3>
         <form id="book-slot-form" onSubmit={handleSubmit}>
           <div className="form-group-inline">
@@ -208,6 +208,87 @@ const Booking = () => {
             </Link>
           </div>
         </div>
+      </div>
+
+      <div class="offline-info" id="offline-info">
+        <h2 class="offline-info-heading">More Info About Offline Courses</h2>
+        <div class="info-grid">
+          <div class="info-item">
+            <p style={{ color: "#977656" }}>
+              💈Beginner Barber Course 💈<br></br>{" "}
+            </p>
+
+            <p>
+              {" "}
+              What will you learn with us? <br></br>
+              <strong>*Hair cutting (sections) top part (scissors)</strong>
+              <strong>*Using the clipper.</strong>
+              <strong>*Use of scissors and comb</strong>
+              <strong>*Correct sterilization of instruments.</strong>
+              <strong>* Classic cut</strong>
+              <strong>*Basic long mannequin hair (hair sectioning)</strong>
+              <strong>Bonus Haircut that is the most used</strong>
+              <strong>*Skin Fade (Shaver)</strong>
+              <strong>*Beard (depending on the shape of the face)</strong>
+              <strong>*Hair washing and techniques</strong>
+              <strong>*Consultation with the Client.</strong>
+            </p>
+            <p style={{ color: "#977656" }}>
+              {" "}
+              ✂ <strong>
+                Equipment from the Academy during the Course
+              </strong> ✂ <br></br>
+            </p>
+          </div>
+          <div class="info-item">
+            <p style={{ color: "#977656" }}>
+              At the end of the Course, you can benefit from the{" "}
+              <strong>Diploma (Internationally Accredited)</strong>. The group
+              consists of 4 people, which allows us to pay attention to each
+              student. For more details, we offer the course schedule <br></br>
+              <strong>Course duration 8 weeks</strong>
+              The course will start on:
+              <strong>Morning schedule:</strong> Monday 9:30 / 17:00 pm
+              Wednesday 9:30 /17:00 pm
+              <strong>
+                After finishing the Course, you will have the opportunity to
+                secure a part-time job (with Your clients), we can prepare you
+                well and we can find you a job quickly.
+              </strong>{" "}
+              (Details will be provided at the Academy, as well as the program){" "}
+              <br></br>
+              <strong>LOCATION - 17 Gold Street NN11RA Northampton Town</strong>
+            </p>
+          </div>
+          <div class="info-item">
+            <p style={{ color: "#977656" }}>
+              {" "}
+              <strong> Master Class-WorkShop Educator: Adrian.M </strong>
+              <br></br>{" "}
+            </p>
+
+            <p>
+              What you will learn with us ? <br></br>
+              <strong>
+                {" "}
+                the top part (sections, shape, texture) The sides (skin/fade, a
+                new technique) - the uniform shape of the haircut, contrast -
+                contour, frontal area - professional styling Beard (correct
+                loss, contour, using the razor) - the shape according to the
+                physiognomy of the face -beard maintenance The photo session
+                (correct position for a professional picture) Marketing and
+                promotion At the end you will receive the Diploma of
+                participation! Time schedule: We start: 11 am - My model,
+                step-by-step presentation Break: 12:30 (15 minutes) Your model
+                13:00 Finish 15:00 pm{" "}
+              </strong>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <hr />
       </div>
     </>
   );

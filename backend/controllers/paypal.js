@@ -18,7 +18,7 @@ const payment = async (req, res) => {
         payment_method: "paypal",
       },
       redirect_urls: {
-        return_url: "http://localhost:5900/api/success",
+        return_url: "http://localhost:5900/api/success?amount=" + amount,
         cancel_url: "http://localhost:5900/api/failed",
       },
       transactions: [
@@ -28,8 +28,7 @@ const payment = async (req, res) => {
               {
                 name: "item",
                 sku: "item",
-                price: "1.00",
-                // price: amount,
+                price: amount,
                 currency: "GBP",
                 quantity: 1,
               },
@@ -37,8 +36,7 @@ const payment = async (req, res) => {
           },
           amount: {
             currency: "GBP",
-            total: "1.00",
-            // total: amount,
+            total: amount,
           },
           description: JSON.stringify({
             paymentType,

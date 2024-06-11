@@ -2,12 +2,12 @@ import React from "react";
 import "../style.css";
 import "../mediaqueries.css";
 import { Link, useNavigate } from "react-router-dom";
-import courseImage from "../../assets/IMG-20240214-WA0014.jpg";
-import courseBoxImage1 from "../../assets/IMG-20240214-WA0012.jpg";
+// import courseImage from "../../assets/masterclass.jpg";
+import courseImage from "../../assets/MASTER CLASS.jpg";
+import courseBoxImage1 from "../../assets/beginner.PNG";
 import courseBoxImage2 from "../../assets/MASTER CLASS.jpg";
 import infoItemImage1 from "../../assets/IMG-20240214-WA0016.jpg";
 import infoItemImage3 from "../../assets/IMG-20240214-WA0013.jpg";
-import infoItemImage5 from "../../assets/beginner.PNG";
 
 import Logo from "../../assets/Logo .jpg";
 import footerimg1 from "../../assets/cpd.jpg";
@@ -23,6 +23,7 @@ const Course = () => {
     <>
       <section class="course-section">
         <div class="course-container">
+          {/* <!-- Left Side --> */}
           <div class="course-info">
             <h1>Online Pre-Recorded Course was for £1250</h1>
             <h1>And now for first 100 people 60% OFF/- </h1>
@@ -31,8 +32,10 @@ const Course = () => {
             <button class="enroll-button" onClick={handleGetEnrolled}>
               GET ENROLLED
             </button>
+            {/* <button class="enroll-button">{payment}</button> */}
           </div>
 
+          {/* <!-- Right Side --> */}
           <div class="course-image">
             <div class="flip-card">
               <div class="flip-card-inner">
@@ -44,7 +47,7 @@ const Course = () => {
                   />
                 </div>
                 <div class="flip-card-back">
-                  <p>
+                  <p style={{ fontSize: "15px" }}>
                     Sign up now for our Barber courses. Our academy offers you
                     the opportunity to enter a new world. Come let us teach you
                     to create masterpieces with your own hands. The course is
@@ -61,6 +64,7 @@ const Course = () => {
         </div>
       </section>
       <div class="course-selection-wrapper">
+        {/* <!-- Centered heading --> */}
         <h2 class="course-selection-heading">Choose Your offline course</h2>
       </div>
 
@@ -93,12 +97,16 @@ const Course = () => {
             <button id="get-enrolled-btn" onClick={handleGetEnrolled}>
               GET ENROLLED
             </button>
-
-            <button>
-              <Link to="#online-info" class="more-info-button"></Link>MORE INFO
-            </button>
           </div>
         </div>
+        <div
+          style={{
+            width: "2px",
+            height: "100%",
+            backgroundColor: "#FFFFFF",
+            margin: "0 20px",
+          }}
+        ></div>
 
         <div class="course-box">
           <h3>MASTER CLASS WORKSHOP 1 TO 1</h3>
@@ -128,8 +136,6 @@ const Course = () => {
           </div>
           <div class="course-buttons">
             <button onClick={handleGetEnrolled}>GET ENROLLED</button>
-
-            <button>MORE INFO</button>
           </div>
         </div>
       </div>
@@ -140,7 +146,9 @@ const Course = () => {
             <img src={infoItemImage1} alt="Description of img1" />
           </div>
           <div class="info-item">
-            <p> Sign up now for our Barber courses. </p>
+            <p style={{ color: "#977656" }}>
+              <strong> Sign up now for our Barber courses. </strong>
+            </p>
             <p>
               Our academy offers you the opportunity to enter a new world. Come
               let us teach you to create masterpieces with your own hands. The
@@ -153,7 +161,7 @@ const Course = () => {
             </p>
             <p>
               The online course features over 50 videos and includes a special
-              book authored by Adrian himself, valued at £50. However, you'll
+              book authored by Adrian himself, valued at £100. However, you'll
               receive the book complimentary with your course purchase.{" "}
             </p>
           </div>
@@ -166,8 +174,12 @@ const Course = () => {
         <h2 class="offline-info-heading">More Info About Offline Courses</h2>
         <div class="info-grid">
           <div class="info-item">
+            <p style={{ color: "#977656" }}>
+              💈Beginner Barber Course 💈<br></br>{" "}
+            </p>
+
             <p>
-              💈Beginner Barber Course 💈<br></br>
+              {" "}
               What will you learn with us? <br></br>
               <strong>*Hair cutting (sections) top part (scissors)</strong>
               <strong>*Using the clipper.</strong>
@@ -179,17 +191,25 @@ const Course = () => {
               <strong>*Skin Fade (Shaver)</strong>
               <strong>*Beard (depending on the shape of the face)</strong>
               <strong>*Hair washing and techniques</strong>
-              <strong>*Consultation with the Client.</strong>✂
-              <strong>Equipment from the Academy during the Course</strong> ✂{" "}
-              <br></br>
+              <strong>*Consultation with the Client.</strong>
+            </p>
+            <p style={{ color: "#977656" }}>
+              {" "}
+              ✂ <strong>
+                Equipment from the Academy during the Course
+              </strong> ✂ <br></br>
+            </p>
+          </div>
+          <div class="info-item">
+            <p style={{ color: "#977656" }}>
               At the end of the Course, you can benefit from the{" "}
               <strong>Diploma (Internationally Accredited)</strong>. The group
               consists of 4 people, which allows us to pay attention to each
               student. For more details, we offer the course schedule <br></br>
               <strong>Course duration 8 weeks</strong>
               The course will start on:
-              <strong>Morning schedule:</strong> Monday 9:30 / 17:00 pm Tuesday
-              9:30 /17:00 pm
+              <strong>Morning schedule:</strong> Monday 9:30 / 17:00 pm
+              Wednesday 9:30 /17:00 pm
               <strong>
                 After finishing the Course, you will have the opportunity to
                 secure a part-time job (with Your clients), we can prepare you
@@ -201,23 +221,27 @@ const Course = () => {
             </p>
           </div>
           <div class="info-item">
-            <img src={infoItemImage5} alt="Description of Img2" />
-          </div>
-          <div class="info-item">
-            <p>
+            <p style={{ color: "#977656" }}>
               {" "}
               <strong> Master Class-WorkShop Educator: Adrian.M </strong>
-              <br></br>
-              What you will learn: - the top part (sections, shape, texture) The
-              sides (skin/fade, a new technique) - the uniform shape of the
-              haircut, contrast - contour, frontal area - professional styling
-              Beard (correct loss, contour, using the razor) - the shape
-              according to the physiognomy of the face -beard maintenance The
-              photo session (correct position for a professional picture)
-              Marketing and promotion At the end you will receive the Diploma of
-              participation! Time schedule: We start: 11 am - My model,
-              step-by-step presentation Break: 12:30 (15 minutes) Your model
-              13:00 Finish 15:00 pm
+              <br></br>{" "}
+            </p>
+
+            <p>
+              What you will learn with us ? <br></br>
+              <strong>
+                {" "}
+                the top part (sections, shape, texture) The sides (skin/fade, a
+                new technique) - the uniform shape of the haircut, contrast -
+                contour, frontal area - professional styling Beard (correct
+                loss, contour, using the razor) - the shape according to the
+                physiognomy of the face -beard maintenance The photo session
+                (correct position for a professional picture) Marketing and
+                promotion At the end you will receive the Diploma of
+                participation! Time schedule: We start: 11 am - My model,
+                step-by-step presentation Break: 12:30 (15 minutes) Your model
+                13:00 Finish 15:00 pm{" "}
+              </strong>
             </p>
           </div>
         </div>
@@ -248,7 +272,7 @@ const Course = () => {
                 <Link to="https://www.facebook.com/share/m7GZw25V2h9tMhzL/?mibextid=LQQJ4d">
                   <i class="fab fa-facebook-f"></i>
                 </Link>
-                <Link to="https://www.tiktok.com/@inspiredstudioacademy?_t=8mOoZU2JHou&_r=1">
+                <Link to="https://www.tiktok.com/@inspiredstudiooacademy?_t=8mlPalzjxTc&_r=1">
                   <i class="fab fa-tiktok"></i>
                 </Link>
                 <Link to="https://www.instagram.com/inspiredstudioacademy?igsh=Nm9vNDkzZ2lpZXdl">

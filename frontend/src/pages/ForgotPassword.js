@@ -20,19 +20,29 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div>
+    <div className="flex flex-col justify-center items-center h-96">
       <h2>Forgot Password</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Email Address:</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+          <div className="bg-slate-100 p-2 flex">
+            <input
+              type="email"
+              placeholder="enter email"
+              name="email"
+              className="w-full h-full outline-none bg-transparent"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
         </div>
-        <button type="submit">Send Reset Link</button>
+        <button
+          type="submit"
+          className="px-3 py-1 m-2 rounded-full text-white bg-red-600 hover:bg-red-700"
+        >
+          Send Reset Link
+        </button>
       </form>
     </div>
   );

@@ -28,7 +28,7 @@ const BookingConfirmed = () => {
       {user?._id ? (
         onlineCourse ? (
           <>
-            <div className="flex flex-col justify-center items-center border h-96">
+            <div className="flex flex-col justify-center items-center h-96">
               <p>You have successfully purchased the online course</p>
               <h1>Click here to go to the course page</h1>
               <button
