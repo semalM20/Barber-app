@@ -110,7 +110,8 @@ const Home = () => {
             <div class="video-boxes">
               <div class="video-box">
                 <video
-                  src="videos/mainpgintro .mp4"
+                  // src="videos/mainpgintro .mp4"
+                  src={`https://res.cloudinary.com/${process.env.CLOUDINARY_PASS}/video/upload/v1718170469/barber-videos/mvvo6j8rk2j89wbxmit0.mp4`}
                   controls
                   style={{
                     height: "300px",
@@ -121,7 +122,8 @@ const Home = () => {
               </div>
               <div class="video-box">
                 <video
-                  src="videos/certification.mp4"
+                  // src="videos/certification.mp4"
+                  src={`https://res.cloudinary.com/${process.env.CLOUDINARY_PASS}/video/upload/v1718172192/barber-videos/jz4mnfppizfgtrwsgcjm.mp4`}
                   controls
                   style={{
                     height: "300px",
@@ -133,7 +135,8 @@ const Home = () => {
               <div class="video-box">
                 <div class="black-square">
                   <video
-                    src="videos/feedbackstudent.mp4"
+                    // src="videos/feedbackstudent.mp4"
+                    src={`https://res.cloudinary.com/${process.env.CLOUDINARY_PASS}/video/upload/v1718172432/barber-videos/uzrztxhtwlub5c9ptqje.mp4`}
                     controls
                     style={{
                       height: "300px",
@@ -145,7 +148,8 @@ const Home = () => {
               </div>
               <div class="video-box">
                 <video
-                  src="videos/offlineclass.mp4"
+                  // src="videos/offlineclass.mp4"
+                  src={`https://res.cloudinary.com/${process.env.CLOUDINARY_PASS}/video/upload/v1718172516/barber-videos/yvjouxfmgjsfoouatijo.mp4`}
                   controls
                   style={{
                     height: "300px",
